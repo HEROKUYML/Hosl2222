@@ -64,13 +64,13 @@ class TgUploader:
 
     def upload_file(self, up_path, filee, dirpath):
         if CUSTOM_FILENAME is not None:
-            cap_mono = f"{CUSTOM_FILENAME} <code>{filee}</code>"
+            cap_bold = f"{CUSTOM_FILENAME} <code>{filee}</code>"
             filee = f"{CUSTOM_FILENAME} {filee}"
             new_path = os.path.join(dirpath, filee)
             os.rename(up_path, new_path)
             up_path = new_path
         else:
-            cap_mono = f"<code>{filee}</code>"
+            cap_bold = f"<code>{filee}</code>"
         notMedia = False
         thumb = self.thumb
         try:
@@ -114,7 +114,7 @@ class TgUploader:
                 elif filee.upper().endswith(IMAGE_SUFFIXES):
                     self.sent_msg = self.sent_msg.reply_photo(photo=up_path,
                                                               quote=True,
-                                                              caption=cap_mono,
+                                                              caption=cap_bold,
                                                               parse_mode="html",
                                                               disable_notification=True,
                                                               progress=self.upload_progress)
@@ -129,7 +129,7 @@ class TgUploader:
                 self.sent_msg = self.sent_msg.reply_document(document=up_path,
                                                              quote=True,
                                                              thumb=thumb,
-                                                             caption=cap_mono,
+                                                             caption=cap_bold,
                                                              parse_mode="html",
                                                              disable_notification=True,
                                                              progress=self.upload_progress)
