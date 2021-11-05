@@ -90,7 +90,7 @@ class TgUploader:
                         up_path = new_path
                     self.sent_msg = self.sent_msg.reply_video(video=up_path,
                                                               quote=True,
-                                                              caption=cap_bold,
+                                                              caption=caption,
                                                               parse_mode="html",
                                                               duration=duration,
                                                               width=480,
@@ -103,7 +103,7 @@ class TgUploader:
                     duration , artist, title = get_media_info(up_path)
                     self.sent_msg = self.sent_msg.reply_audio(audio=up_path,
                                                               quote=True,
-                                                              caption=cap_mono,
+                                                              caption=caption,
                                                               parse_mode="html",
                                                               duration=duration,
                                                               performer=artist,
@@ -129,7 +129,7 @@ class TgUploader:
                 self.sent_msg = self.sent_msg.reply_document(document=up_path,
                                                              quote=True,
                                                              thumb=thumb,
-                                                             caption=cap_mono,
+                                                             caption=caption,
                                                              parse_mode="html",
                                                              disable_notification=True,
                                                              progress=self.upload_progress)
