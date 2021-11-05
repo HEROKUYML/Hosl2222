@@ -34,7 +34,7 @@ logging.getLogger('googleapiclient.discovery').setLevel(logging.ERROR)
 if USE_SERVICE_ACCOUNTS:
     SERVICE_ACCOUNT_INDEX = randrange(len(os.listdir("accounts")))
 
-TELEGRAPHLIMIT = 60
+TELEGRAPHLIMIT = 100
 
 
 class GoogleDriveHelper:
@@ -577,9 +577,9 @@ class GoogleDriveHelper:
                     content += f'<b> | <a href="https://telegra.ph/{self.path[nxt_page]}">Next</a></b>'
                     nxt_page += 1
             Telegraph(access_token=telegraph_token).edit_page(path = self.path[prev_page],
-                                 title = 'MirLeechX Search',
-                                 author_name='MirLeechX',
-                                 author_url='https://github.com/iamLiquidX/MirLeechX',
+                                 title = 'Devil Pro',
+                                 author_name='Devil',
+                                 author_url='https://t.me/TGDevil',
                                  html_content=content)
         return
 
@@ -774,9 +774,9 @@ class GoogleDriveHelper:
 
         for content in self.telegraph_content :
             self.path.append(Telegraph(access_token=telegraph_token).create_page(
-                                                    title = 'MirLeechX Search',
-                                                    author_name='MirLeechX',
-                                                    author_url='https://github.com/iamLiquidX/MirLeechX',
+                                                    title = 'Devil Pro',
+                                                    author_name='Devil',
+                                                    author_url='https://t.me/TGDevil',
                                                     html_content=content
                                                     )['path'])
 
